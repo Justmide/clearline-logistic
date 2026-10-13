@@ -1,0 +1,6 @@
+# Robots.txt for Hatch&Forge
+User-agent: *
+Allow: /
+
+# Sitemap URL
+Sitemap: https://www.hatchandforge.com/sitemap.xml

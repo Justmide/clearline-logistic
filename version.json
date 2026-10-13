@@ -1,0 +1,7 @@
+{
+  "version": "1.0.0",
+  "buildDate": "2026-08-20T10:25:00Z",
+  "routes": {
+    "fallback": "/index.html"
+  }
+}

@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  --color-hatch-navy: #003B73;
+  --color-hatch-blue: #005A9C;
+  --color-hatch-gold: #C9A64A;
+  --color-hatch-light-gold: #FFD166;
+  --color-hatch-white: #FFFFFF;
+  --color-hatch-off-white: #F7F9FC;
+  --color-hatch-charcoal: #10181F;
+  --color-hatch-gray: #64748B;
+  --color-hatch-border: #E2E8F0;
+}
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: #111111;
+  background: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: clip;
+  overflow-anchor: none;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: clip;
+  overflow-anchor: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── Hero entrance animations (GPU-composited, zero scroll blocking) ── */
+@keyframes hf-fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hf-hero-anim {
+  opacity: 0;
+  animation: hf-fade-up 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.hf-hero-d1 { animation-delay: 0.02s; }
+.hf-hero-d2 { animation-delay: 0.06s; }
+.hf-hero-d3 { animation-delay: 0.10s; }
+.hf-hero-d4 { animation-delay: 0.14s; }
+.hf-hero-d5 { animation-delay: 0.18s; }
+.hf-hero-d6 { animation-delay: 0.22s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hf-hero-anim { animation: none; opacity: 1; }
+}
+
+/* ── iOS 267 VisionOS Glassmorphism Utilities ── */
+.ios-glass-panel {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.06) 45%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  backdrop-filter: blur(44px) saturate(210%);
+  -webkit-backdrop-filter: blur(44px) saturate(210%);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow:
+    0 32px 80px -16px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 1.5px 0 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.12),
+    inset 0 0 36px 0 rgba(255, 255, 255, 0.03);
+}
+
+.ios-glass-pill {
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.45);
+}
+
+.ios-glass-input {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(24px) saturate(170%);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+.ios-glass-input:focus {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: #FFB000;
+  box-shadow:
+    0 0 0 4px rgba(255, 176, 0, 0.22),
+    inset 0 2px 4px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.ios-glass-subcard {
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.10) 0%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  box-shadow:
+    0 16px 40px -8px rgba(0, 0, 0, 0.45),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.4);
+}

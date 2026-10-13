@@ -1,0 +1,28 @@
+# Hatch & Forge
+
+> Premier construction management and real estate investment partner in Washington, DC. We manage turnkey residential renovations, ground-up new construction, design pre-construction feasibility, and capital partnerships for active real estate investors.
+
+## Main Pages & Services
+
+- [Services Overview](https://www.hatchandforge.com/services): Comprehensive overview of all 5 service lines with pricing and deliverables.
+- [Fix-and-Flip Project Management](https://www.hatchandforge.com/services/fix-and-flip): End-to-end renovation management for residential real estate investors (10% to 15% PM fee).
+- [New Construction Management](https://www.hatchandforge.com/services/new-construction): Turnkey ground-up construction, infill development, and teardown-rebuilds in Washington, DC.
+- [Design & Pre-Construction](https://www.hatchandforge.com/services/design-pre-construction): Feasibility analysis, architectural space planning, permit coordination, and ARV-optimized finish selections.
+- [Proprietary Investment & Co-Investment](https://www.hatchandforge.com/services/proprietary-investment): Joint ventures, equity co-investments, and self-managed construction partnerships.
+- [Portfolio Management Services](https://www.hatchandforge.com/services/portfolio-management): Enterprise construction oversight and procurement for multi-property real estate funds.
+
+## Company & Contact
+
+- [How We Work](https://www.hatchandforge.com/how-we-work): Our 6-phase disciplined execution framework from deal walk to MLS listing.
+- [Project Gallery](https://www.hatchandforge.com/projects): Explore our 4 residential investment scope tiers and project standards.
+- [About Us](https://www.hatchandforge.com/about): Our mission, founder story, core values, and investment thesis.
+- [Team](https://www.hatchandforge.com/team): Meet our leadership, architects, interior designers, and project coordinators.
+- [Start a Project](https://www.hatchandforge.com/start-project): Submit a property address or investment deal for a complimentary walkthrough and feasibility review.
+- [Privacy Policy](https://www.hatchandforge.com/privacy-policy): Privacy and data protection policy.
+- [Terms of Service](https://www.hatchandforge.com/terms): Terms of service and commercial agreement parameters.
+
+## Contact Information
+
+- **Address**: 1707 7th St NW, Washington, DC 20001
+- **Email**: [info@hatchandforge.com](mailto:info@hatchandforge.com)
+- **Website**: [https://www.hatchandforge.com](https://www.hatchandforge.com)
