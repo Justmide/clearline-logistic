@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { LogIn, ArrowRight, ShieldCheck, Package, AlertCircle, Sparkles } from "lucide-react";
+import { LogIn, ArrowRight, ShieldCheck, Package, AlertCircle, Sparkles, Loader2 } from "lucide-react";
 import { loginUser, getCurrentUser } from "../utils/auth";
 
 export default function LoginPage() {
@@ -16,7 +16,7 @@ export default function LoginPage() {
     // Optionally allow staying or redirect
   }
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -27,6 +27,8 @@ export default function LoginPage() {
 
     setLoading(true);
     try {
+      // Provide instant loading animation visual feedback
+      await new Promise((r) => setTimeout(r, 450));
       loginUser(identifier, password);
       setLoading(false);
       navigate("/dashboard");
@@ -145,12 +147,19 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="group w-full py-3.5 px-4 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] text-[#171B22] hover:text-white font-mono text-[11px] font-bold uppercase tracking-[0.14em] transition-all duration-200 shadow-[0_8px_30px_-8px_rgba(255,176,0,0.6)] hover:shadow-[0_12px_36px_-8px_rgba(244,91,11,0.6)] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+              className="group w-full py-3.5 px-4 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] active:scale-[0.98] text-[#171B22] hover:text-white font-mono text-[11px] font-bold uppercase tracking-[0.14em] transition-all duration-150 shadow-[0_8px_30px_-8px_rgba(255,176,0,0.6)] hover:shadow-[0_12px_36px_-8px_rgba(244,91,11,0.6)] disabled:opacity-75 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
             >
-              <LogIn className="w-4 h-4" />
-              {loading ? "Signing in…" : "Sign in"}
-              {!loading && (
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+              {loading ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin text-[#171B22]" />
+                  <span>Signing in to China Suite…</span>
+                </>
+              ) : (
+                <>
+                  <LogIn className="w-4 h-4" />
+                  <span>Sign in</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                </>
               )}
             </button>
           </form>

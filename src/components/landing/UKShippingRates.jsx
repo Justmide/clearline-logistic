@@ -67,7 +67,7 @@ export default function UKShippingRates() {
   ];
 
   return (
-    <section id="rates" className="bg-slate-50 text-slate-900 py-14 sm:py-20 border-t border-slate-200">
+    <section id="rates" className="bg-slate-50 text-slate-900 py-14 sm:py-20 border-t border-slate-200 paint-deferred">
       <div id="pricing" className="absolute -top-24" />
       <div id="how-it-works" className="absolute -top-24" />
 
@@ -120,7 +120,7 @@ export default function UKShippingRates() {
 
             <Link
               to="/signup"
-              className="mt-4 w-full py-2.5 rounded-lg bg-[#FFB000] hover:bg-[#F45B0B] text-[#0B1320] hover:text-white font-mono text-xs font-bold uppercase text-center transition-colors"
+              className="mt-4 w-full py-2.5 rounded-lg bg-[#FFB000] hover:bg-[#F45B0B] active:scale-[0.98] text-[#0B1320] hover:text-white font-mono text-xs font-bold uppercase text-center transition-all"
             >
               Book Air Freight →
             </Link>
@@ -148,7 +148,7 @@ export default function UKShippingRates() {
 
             <Link
               to="/signup"
-              className="mt-4 w-full py-2.5 rounded-lg bg-[#0B1320] hover:bg-slate-800 text-white font-mono text-xs font-bold uppercase text-center transition-colors"
+              className="mt-4 w-full py-2.5 rounded-lg bg-[#0B1320] hover:bg-slate-800 active:scale-[0.98] text-white font-mono text-xs font-bold uppercase text-center transition-all"
             >
               Book Land Shipping →
             </Link>

@@ -127,3 +127,35 @@ body {
   border-color: rgba(15, 23, 42, 0.16);
   box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
 }
+
+
+/* ── Instant Button Feedback & Micro-Interactions ── */
+button:not(:disabled),
+a[role="button"],
+.btn-action {
+  transition: transform 0.12s cubic-bezier(0.2, 0, 0, 1), background-color 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+button:not(:disabled):active,
+a[role="button"]:active,
+.btn-action:active {
+  transform: scale(0.972);
+}
+
+/* ── Fast GPU-accelerated spin animation ── */
+@keyframes fast-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-spin-fast {
+  animation: fast-spin 0.55s linear infinite;
+}
+
+/* ── Performance: Content Visibility for Below-the-Fold Sections ── */
+.paint-deferred {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 650px;
+}

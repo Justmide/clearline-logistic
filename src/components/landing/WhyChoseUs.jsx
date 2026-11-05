@@ -48,7 +48,7 @@ const comparisons = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="bg-white text-slate-900 py-14 sm:py-20 border-t border-slate-200">
+    <section id="why-us" className="bg-white text-slate-900 py-14 sm:py-20 border-t border-slate-200 paint-deferred">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
@@ -67,7 +67,7 @@ export default function WhyChooseUs() {
 
           <Link
             to="/signup"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#0B1320] hover:bg-slate-800 text-white font-mono text-xs font-bold uppercase transition-colors shrink-0"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#0B1320] hover:bg-slate-800 active:scale-[0.98] text-white font-mono text-xs font-bold uppercase transition-all shrink-0"
           >
             Create Account
             <ArrowRight className="w-3.5 h-3.5 text-[#FFB000]" />

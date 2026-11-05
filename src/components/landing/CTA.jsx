@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function CTA() {
   return (
-    <section id="contact" className="bg-[#0B1320] text-white py-14 sm:py-20 border-t border-slate-800">
+    <section id="contact" className="bg-[#0B1320] text-white py-14 sm:py-20 border-t border-slate-800 paint-deferred">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Chip */}
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-5 font-mono text-[10px] uppercase font-bold text-slate-300">
@@ -24,7 +24,7 @@ export default function CTA() {
         <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             to="/signup"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] text-[#0B1320] hover:text-white font-mono text-xs font-bold uppercase tracking-wider transition-all"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] active:scale-[0.98] text-[#0B1320] hover:text-white font-mono text-xs font-bold uppercase tracking-wider transition-all"
           >
             <UserPlus className="w-4 h-4" />
             Get Free China Suite
@@ -32,7 +32,7 @@ export default function CTA() {
           </Link>
           <Link
             to="/login"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/20 hover:border-white/40 bg-white/5 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/20 hover:border-white/40 active:scale-[0.98] bg-white/5 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all"
           >
             Client Portal Login
           </Link>

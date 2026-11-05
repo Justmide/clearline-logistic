@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { UserPlus, CheckCircle, ShieldCheck, Copy, Check, ArrowRight, Package, AlertCircle } from "lucide-react";
+import { UserPlus, CheckCircle, ShieldCheck, Copy, Check, ArrowRight, Package, AlertCircle, Loader2 } from "lucide-react";
 import { registerUser, getChinaWarehouseAddress } from "../utils/auth";
 
 export default function RegisterPage() {
@@ -24,7 +24,7 @@ export default function RegisterPage() {
     if (error) setError("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -40,6 +40,8 @@ export default function RegisterPage() {
 
     setLoading(true);
     try {
+      // Provide instant loading animation visual feedback
+      await new Promise((r) => setTimeout(r, 500));
       const user = registerUser(formData);
       setLoading(false);
       setNewlyRegistered(user);
@@ -312,12 +314,19 @@ export default function RegisterPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="group w-full mt-2 py-3.5 px-4 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] text-[#171B22] hover:text-white font-mono text-[11px] font-bold uppercase tracking-[0.14em] transition-all duration-200 shadow-[0_8px_30px_-8px_rgba(255,176,0,0.6)] hover:shadow-[0_12px_36px_-8px_rgba(244,91,11,0.6)] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+                  className="group w-full mt-2 py-3.5 px-4 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] active:scale-[0.98] text-[#171B22] hover:text-white font-mono text-[11px] font-bold uppercase tracking-[0.14em] transition-all duration-150 shadow-[0_8px_30px_-8px_rgba(255,176,0,0.6)] hover:shadow-[0_12px_36px_-8px_rgba(244,91,11,0.6)] disabled:opacity-75 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <UserPlus className="w-4 h-4" />
-                  {loading ? "Creating account…" : "Register & get address"}
-                  {!loading && (
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin text-[#171B22]" />
+                      <span>Assigning Personal China Suite…</span>
+                    </>
+                  ) : (
+                    <>
+                      <UserPlus className="w-4 h-4" />
+                      <span>Register &amp; Get China Address</span>
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                    </>
                   )}
                 </button>
               </form>

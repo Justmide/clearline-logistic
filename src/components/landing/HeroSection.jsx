@@ -11,6 +11,7 @@ import {
   Package,
   MapPin,
   Clock,
+  Loader2,
 } from "lucide-react";
 
 export default function HeroSection() {
@@ -18,38 +19,53 @@ export default function HeroSection() {
   const [activeTab, setActiveTab] = useState("track");
   const [trackingCode, setTrackingCode] = useState("");
   const [trackingResult, setTrackingResult] = useState(null);
+  const [isSearching, setIsSearching] = useState(false);
 
   const [weightKg, setWeightKg] = useState("3.5");
   const [shippingMode, setShippingMode] = useState("air");
   const [cargoType, setCargoType] = useState("general");
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(() => {});
+    const startVideo = () => {
+      if (videoRef.current) {
+        videoRef.current.defaultMuted = true;
+        videoRef.current.muted = true;
+        videoRef.current.play().catch(() => {});
+      }
+    };
+    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+      window.requestIdleCallback(startVideo, { timeout: 1200 });
+    } else {
+      const timer = setTimeout(startVideo, 200);
+      return () => clearTimeout(timer);
     }
   }, []);
 
   const handleTrackSubmit = (e) => {
-    e.preventDefault();
-    if (!trackingCode.trim()) return;
+    if (e && e.preventDefault) e.preventDefault();
+    if (!trackingCode.trim() || isSearching) return;
 
-    setTrackingResult({
-      code: trackingCode.trim().toUpperCase(),
-      status: "In Transit",
-      statusDetail: "Flight departed",
-      origin: "Shenzhen Hub (SZX)",
-      destination: "London Heathrow (LHR) → UK Doorstep",
-      eta: "3–4 Business Days",
-      steps: [
-        { label: "Received at China hub", done: true },
-        { label: "Consolidated & export cleared", done: true },
-        { label: "Cargo en route to London", done: true, current: true },
-        { label: "HMRC customs clearance (DDP)", done: false },
-        { label: "Doorstep courier delivery", done: false },
-      ],
-    });
+    setIsSearching(true);
+    setTrackingResult(null);
+
+    setTimeout(() => {
+      setIsSearching(false);
+      setTrackingResult({
+        code: trackingCode.trim().toUpperCase(),
+        status: "In Transit",
+        statusDetail: "Flight departed",
+        origin: "Shenzhen Hub (SZX)",
+        destination: "London Heathrow (LHR) → UK Doorstep",
+        eta: "3–4 Business Days",
+        steps: [
+          { label: "Received at China hub", done: true },
+          { label: "Consolidated & export cleared", done: true },
+          { label: "Cargo en route to London", done: true, current: true },
+          { label: "HMRC customs clearance (DDP)", done: false },
+          { label: "Doorstep courier delivery", done: false },
+        ],
+      });
+    }, 420);
   };
 
   const numWeight = parseFloat(weightKg) || 1;
@@ -77,13 +93,13 @@ export default function HeroSection() {
       {/* ── Background Video (Fully Visible & Vibrant) ──────── */}
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover hidden sm:block pointer-events-none"
         autoPlay
         loop
         muted
         defaultMuted
         playsInline
-        preload="auto"
+        preload="metadata"
         aria-hidden="true"
       >
         <source src="/assets/videos/hero-cargo.mp4" type="video/mp4" />
@@ -103,7 +119,7 @@ export default function HeroSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ── Top Pill ────────────────────────────────────────── */}
-        <div className="flex justify-center lg:justify-start mb-6" data-aos="fade-up">
+        <div className="flex justify-center lg:justify-start mb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-[#FFB000] animate-pulse" />
             <span className="font-mono text-[10px] sm:text-[11px] tracking-wider uppercase text-white font-semibold">
@@ -115,7 +131,7 @@ export default function HeroSection() {
         {/* ── Two-Column Layout ───────────────────────────────── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* LEFT: Short, Punchy Headline & Value */}
-          <div className="lg:col-span-7 text-center lg:text-left" data-aos="fade-up">
+          <div className="lg:col-span-7 text-center lg:text-left">
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white">
               China to UK Shipping,
               <br />
@@ -132,7 +148,7 @@ export default function HeroSection() {
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
               <Link
                 to="/signup"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] text-[#0B1320] hover:text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-200 shadow-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] active:scale-[0.97] text-[#0B1320] hover:text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-150 shadow-sm"
               >
                 <Package className="w-4 h-4" />
                 Get China Suite
@@ -141,7 +157,7 @@ export default function HeroSection() {
 
               <a
                 href="#rates"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all backdrop-blur-md"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 active:scale-[0.97] border border-white/20 text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all backdrop-blur-md"
               >
                 <Calculator className="w-4 h-4 text-[#FFB000]" />
                 View Rates
@@ -170,7 +186,7 @@ export default function HeroSection() {
           </div>
 
           {/* RIGHT: Compact Console (Tracking & Quote) */}
-          <div className="lg:col-span-5" data-aos="fade-up" data-aos-delay="100">
+          <div className="lg:col-span-5">
             <div className="rounded-2xl border border-white/20 bg-white/95 text-slate-900 shadow-xl backdrop-blur-xl overflow-hidden">
               {/* Header & Tabs */}
               <div className="border-b border-slate-200 bg-slate-50/90 px-5 pt-4 pb-0">
@@ -222,9 +238,20 @@ export default function HeroSection() {
                       </div>
                       <button
                         type="submit"
-                        className="px-4 py-2.5 rounded-lg bg-[#0B1320] hover:bg-slate-800 text-white font-mono text-[11px] uppercase tracking-wider font-bold transition-colors cursor-pointer shrink-0"
+                        disabled={isSearching}
+                        className="px-4 py-2.5 rounded-lg bg-[#0B1320] hover:bg-slate-800 active:scale-95 text-white font-mono text-[11px] uppercase tracking-wider font-bold transition-all cursor-pointer shrink-0 disabled:opacity-75 flex items-center justify-center gap-1.5 min-w-[76px]"
                       >
-                        Track
+                        {isSearching ? (
+                          <>
+                            <Loader2 className="w-3.5 h-3.5 animate-spin text-[#FFB000]" />
+                            <span>Locating…</span>
+                          </>
+                        ) : (
+                          <>
+                            <Search className="w-3.5 h-3.5" />
+                            <span>Track</span>
+                          </>
+                        )}
                       </button>
                     </form>
 
@@ -234,11 +261,31 @@ export default function HeroSection() {
                         <button
                           key={code}
                           type="button"
+                          disabled={isSearching}
                           onClick={() => {
                             setTrackingCode(code);
-                            handleTrackSubmit({ preventDefault: () => {} });
+                            setIsSearching(true);
+                            setTrackingResult(null);
+                            setTimeout(() => {
+                              setIsSearching(false);
+                              setTrackingResult({
+                                code: code,
+                                status: "In Transit",
+                                statusDetail: "Flight departed",
+                                origin: "Shenzhen Hub (SZX)",
+                                destination: "London Heathrow (LHR) → UK Doorstep",
+                                eta: "3–4 Business Days",
+                                steps: [
+                                  { label: "Received at China hub", done: true },
+                                  { label: "Consolidated & export cleared", done: true },
+                                  { label: "Cargo en route to London", done: true, current: true },
+                                  { label: "HMRC customs clearance (DDP)", done: false },
+                                  { label: "Doorstep courier delivery", done: false },
+                                ],
+                              });
+                            }, 380);
                           }}
-                          className="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 border border-slate-200 font-mono text-[10px] text-slate-700 cursor-pointer"
+                          className="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 active:scale-95 border border-slate-200 font-mono text-[10px] text-slate-700 cursor-pointer transition-all"
                         >
                           {code}
                         </button>

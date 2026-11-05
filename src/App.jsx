@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState, lazy, Suspense } from "react";
 import { Route, Routes, useLocation, Link, Navigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -8,12 +8,14 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ComplianceNotice from "./components/common/ComplianceNotice";
 import LandingPage from "./pages/LandingPage";
-import AboutPage from "./pages/AboutUs";
-import LoginPage from "./pages/Login";
-import RegisterPage from "./pages/Register";
-import DashboardPage from "./pages/Dashboard";
-import PrivacyLegal from "./pages/PrivacyLegal";
-import TermsOfService from "./pages/TermsOfService";
+
+// Code-split secondary routes for rapid initial landing page paint and high Lighthouse scores
+const AboutPage = lazy(() => import("./pages/AboutUs"));
+const LoginPage = lazy(() => import("./pages/Login"));
+const RegisterPage = lazy(() => import("./pages/Register"));
+const DashboardPage = lazy(() => import("./pages/Dashboard"));
+const PrivacyLegal = lazy(() => import("./pages/PrivacyLegal"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 import { preloadImagesInBackground } from "./utils/imagePreloader";
 
 function ScrollToTop() {
@@ -128,7 +130,15 @@ function App() {
       <Navbar />
 
       <main className="flex-grow w-full max-w-full overflow-x-clip">
-        <Routes>
+        <Suspense
+          fallback={
+            <div className="min-h-[50vh] flex flex-col items-center justify-center gap-3">
+              <div className="w-8 h-8 rounded-full border-2 border-slate-200 border-t-[#F45B0B] animate-spin" />
+              <span className="font-mono text-xs text-slate-500 uppercase tracking-wider">Loading ClearLine Portal…</span>
+            </div>
+          }
+        >
+          <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -150,6 +160,7 @@ function App() {
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        </Suspense>
       </main>
 
       <Footer />

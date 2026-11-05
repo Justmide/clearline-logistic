@@ -15,6 +15,7 @@ import {
   ShieldCheck,
   Search,
   X,
+  Loader2,
 } from "lucide-react";
 import {
   getCurrentUser,
@@ -36,6 +37,7 @@ export default function DashboardPage() {
     declaredValue: "",
   });
   const [preAlertSuccess, setPreAlertSuccess] = useState(false);
+  const [submittingAlert, setSubmittingAlert] = useState(false);
 
   useEffect(() => {
     const cur = getCurrentUser();
@@ -62,9 +64,13 @@ export default function DashboardPage() {
     navigate("/login");
   };
 
-  const handlePreAlertSubmit = (e) => {
+  const handlePreAlertSubmit = async (e) => {
     e.preventDefault();
-    if (!preAlertForm.domesticTracking.trim()) return;
+    if (!preAlertForm.domesticTracking.trim() || submittingAlert) return;
+
+    setSubmittingAlert(true);
+    await new Promise((r) => setTimeout(r, 450));
+    setSubmittingAlert(false);
 
     const newShipment = {
       trackingNo: `CLE-${Math.floor(10000 + Math.random() * 90000)}-UK`,
@@ -493,10 +499,20 @@ export default function DashboardPage() {
                     </button>
                     <button
                       type="submit"
-                      className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#FFB000] hover:bg-[#F45B0B] text-[#171B22] hover:text-white font-mono text-[10px] uppercase tracking-[0.14em] font-bold transition-all duration-200 cursor-pointer"
+                      disabled={submittingAlert}
+                      className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#FFB000] hover:bg-[#F45B0B] active:scale-95 text-[#171B22] hover:text-white font-mono text-[10px] uppercase tracking-[0.14em] font-bold transition-all duration-150 cursor-pointer disabled:opacity-75"
                     >
-                      Confirm pre-alert
-                      <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
+                      {submittingAlert ? (
+                        <>
+                          <Loader2 className="w-3.5 h-3.5 animate-spin text-[#171B22]" />
+                          <span>Registering parcel…</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Confirm pre-alert</span>
+                          <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
+                        </>
+                      )}
                     </button>
                   </div>
                 </form>
