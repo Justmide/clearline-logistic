@@ -27,7 +27,7 @@ export default function AboutUs() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
           <div className="lg:col-span-7 space-y-5 text-sm sm:text-base text-slate-700 leading-relaxed">
             <p>
-              Founded to remove friction from cross-border shopping and commercial supply chains, ClearLine provides British consumers, Amazon sellers, and independent retailers with seamless access to Chinese suppliers (Taobao, 1688, JD, and manufacturing factories).
+              Founded to remove friction from cross-border trade and commercial supply chains, ClearLine provides British consumers, e-commerce retailers, and businesses with seamless access to Chinese suppliers and manufacturing factories.
             </p>
             <p>
               We solve the core challenges of international parcel moving:
@@ -39,7 +39,7 @@ export default function AboutUs() {
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                <span><strong>Delivered Duty Paid (DDP):</strong> We settle UK customs VAT and duties in advance so packages arrive without royal mail £12 collection fees or postal holding delays.</span>
+                <span><strong>Delivered Duty Paid (DDP):</strong> We settle UK customs VAT and duties in advance so packages arrive without unexpected postal collection surcharges or customs holding delays.</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />

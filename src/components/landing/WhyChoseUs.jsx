@@ -3,45 +3,45 @@ import { Link } from "react-router-dom";
 
 const comparisons = [
   {
-    feature: "All-inclusive DDP",
-    detail: "UK import VAT & duty paid in advance. No Royal Mail £12 handling charge.",
+    feature: "All-inclusive DDP Clearance",
+    detail: "UK import VAT & customs duty paid in advance. No unexpected postal handling surcharges or surprise letters.",
     clearline: true,
-    ems: false,
-    traditional: "Partial / hidden fees",
+    postal: false,
+    traditional: "Partial / extra fees",
   },
   {
-    feature: "Free inspection & HD photos",
-    detail: "Catch incorrect or damaged items before they leave China.",
+    feature: "Free Inspection & HD Photos",
+    detail: "Catch incorrect, damaged, or incomplete items while your parcels are still inside China.",
     clearline: true,
-    ems: false,
+    postal: false,
     traditional: "Extra fee",
   },
   {
-    feature: "Consolidation & repack",
-    detail: "Combine 5–10 merchant parcels into one box. Save up to 50% on air weight.",
+    feature: "Consolidation & Repackaging",
+    detail: "Combine 5–15 supplier packages into one compact carton. Save up to 50% on air volume weight.",
     clearline: true,
-    ems: false,
+    postal: false,
     traditional: false,
   },
   {
-    feature: "China → UK transit",
-    detail: "Direct air routes from Shenzhen & Guangzhou to London Heathrow.",
-    clearline: "3–7 business days",
-    ems: "18–35 days",
-    traditional: "10–18 days",
+    feature: "China ➔ UK Air Transit",
+    detail: "Direct air routes from Shenzhen & Guangzhou hubs straight to London Heathrow.",
+    clearline: "8–15 days (6–12d Express)",
+    postal: "20–40 days",
+    traditional: "14–25 days",
   },
   {
-    feature: "Milestone tracking",
-    detail: "Full tracking from China warehouse to your UK front door.",
+    feature: "Milestone Doorstep Tracking",
+    detail: "Full visibility from China warehouse receipt all the way to your UK front door.",
     clearline: true,
-    ems: "Vague / delayed",
+    postal: "Vague / delayed",
     traditional: "Port only",
   },
   {
-    feature: "UK-based support",
-    detail: "WhatsApp, live chat, or UK phone helpline.",
+    feature: "Dedicated UK-Based Support",
+    detail: "Fast help via WhatsApp, direct UK phone helpline, and live support desk.",
     clearline: true,
-    ems: false,
+    postal: false,
     traditional: "Slow email",
   },
 ];
@@ -50,148 +50,104 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-us"
-      className="relative overflow-hidden bg-[#F4F5F7] text-[#171B22] py-20 sm:py-28"
+      className="relative overflow-hidden bg-slate-50 text-slate-900 py-20 sm:py-28 border-t border-slate-200/70"
     >
-      {/* Ambient glow */}
-      <div
-        aria-hidden="true"
-        className="absolute -top-40 left-1/3 w-[700px] h-[400px] rounded-full opacity-[0.25] blur-[140px] pointer-events-none"
-        style={{ background: "radial-gradient(circle, #FFB00033, transparent 70%)" }}
-      />
-
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ── Header ─────────────────────────────────────────── */}
         <div
-          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14 lg:mb-16"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14"
           data-aos="fade-up"
         >
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#171B22]/10 bg-white">
-              <span className="w-1 h-1 rounded-full bg-[#F45B0B]" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#171B22]/60">
-                Transparent logistics
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 bg-white">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B0B]" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-600 font-bold">
+                Transparent Cross-Border Logistics
               </span>
             </div>
 
-            <h2 className="mt-5 text-[34px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-[-0.03em] leading-[1.02] text-[#171B22]">
+            <h2 className="mt-4 text-[32px] sm:text-[42px] lg:text-[48px] font-extrabold tracking-[-0.03em] leading-[1.05] text-[#0B1320]">
               Why shippers choose
               <br />
-              <span className="relative inline-block">
-                <span className="relative z-10">ClearLine Express.</span>
-                <span
-                  aria-hidden="true"
-                  className="absolute left-0 right-0 bottom-[0.08em] h-[0.32em] bg-[#FFB000]/40 -skew-x-6 -z-0"
-                />
-              </span>
+              <span className="text-slate-900">ClearLine Express.</span>
             </h2>
 
-            <p className="mt-5 text-[15px] sm:text-base text-[#171B22]/60 leading-relaxed max-w-xl">
-              See how our dedicated China → UK corridor compares against China Post / EMS and
-              traditional freight brokers.
+            <p className="mt-4 text-[15px] sm:text-base text-slate-600 leading-relaxed max-w-xl">
+              See how our dedicated China to UK corridor compares against traditional postal networks and legacy freight brokers.
             </p>
           </div>
 
           <Link
             to="/signup"
-            className="group inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] text-[#171B22] hover:text-white font-mono text-[11px] font-bold uppercase tracking-[0.14em] transition-all duration-200 shadow-[0_8px_30px_-8px_rgba(255,176,0,0.6)] hover:shadow-[0_12px_36px_-8px_rgba(244,91,11,0.6)] shrink-0"
+            className="group inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-[#0B1320] hover:bg-slate-800 text-white font-mono text-[11px] font-bold uppercase tracking-[0.14em] transition-all duration-200 shadow-md shrink-0"
           >
-            Create an account
-            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+            Create Free Account
+            <ArrowRight className="w-3.5 h-3.5 text-[#FFB000] transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 
-        {/* ── Comparison panel ───────────────────────────────── */}
+        {/* ── Desktop Comparison Table (Hidden on small mobile) ── */}
         <div
-          className="rounded-2xl border border-[#171B22]/10 bg-white overflow-hidden"
+          className="hidden md:block rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-xs"
           data-aos="fade-up"
-          data-aos-delay="100"
         >
-          {/* Column headers — desktop only */}
-          <div className="hidden md:grid grid-cols-[2fr_1fr_1fr_1fr] border-b border-[#171B22]/10 bg-[#F4F5F7]">
-            <div className="px-6 py-4 font-mono text-[10px] uppercase tracking-[0.16em] text-[#171B22]/45">
-              Capability
+          {/* Table Headers */}
+          <div className="grid grid-cols-[2fr_1fr_1fr_1fr] border-b border-slate-200 bg-slate-50/90 font-mono text-[11px] uppercase tracking-[0.14em] font-bold">
+            <div className="px-6 py-4 text-slate-500">Service Capability</div>
+            <div className="px-4 py-4 text-center border-x border-slate-200 bg-[#FFB000]/10 text-[#0B1320] flex items-center justify-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-[#F45B0B]" />
+              ClearLine Express
             </div>
-            <div className="px-4 py-4 text-center border-x border-[#171B22]/8">
-              <div className="inline-flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-[#F45B0B]" />
-                <span className="font-mono text-[10px] uppercase tracking-[0.16em] font-bold text-[#171B22]">
-                  ClearLine
-                </span>
-              </div>
-            </div>
-            <div className="px-4 py-4 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-[#171B22]/45">
-              China Post / EMS
-            </div>
-            <div className="px-4 py-4 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-[#171B22]/45">
-              Brokers
-            </div>
+            <div className="px-4 py-4 text-center text-slate-500">Traditional Postal</div>
+            <div className="px-4 py-4 text-center text-slate-500">Freight Brokers</div>
           </div>
 
           {/* Rows */}
-          <ul className="divide-y divide-[#171B22]/8">
+          <ul className="divide-y divide-slate-100">
             {comparisons.map((row, idx) => (
               <li
                 key={idx}
-                className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] hover:bg-[#F4F5F7]/60 transition-colors"
+                className="grid grid-cols-[2fr_1fr_1fr_1fr] hover:bg-slate-50/60 transition-colors items-center"
               >
-                {/* Feature + detail */}
-                <div className="px-6 py-5">
-                  <div className="text-[14px] font-bold tracking-tight text-[#171B22]">
-                    {row.feature}
-                  </div>
-                  <div className="mt-1 text-[11.5px] text-[#171B22]/55 leading-snug max-w-md">
-                    {row.detail}
-                  </div>
+                {/* Feature Info */}
+                <div className="px-6 py-4.5">
+                  <div className="text-[14px] font-bold text-slate-900">{row.feature}</div>
+                  <div className="mt-1 text-xs text-slate-500 leading-normal max-w-md">{row.detail}</div>
                 </div>
 
-                {/* ClearLine column */}
-                <div className="px-4 py-5 md:text-center md:border-x border-[#171B22]/8 bg-[#FFB000]/[0.06]">
-                  <div className="md:hidden font-mono text-[9px] uppercase tracking-[0.16em] text-[#171B22]/45 mb-1">
-                    ClearLine
-                  </div>
+                {/* ClearLine Column */}
+                <div className="px-4 py-4.5 text-center border-x border-slate-200 bg-[#FFB000]/[0.06] h-full flex items-center justify-center">
                   {row.clearline === true ? (
-                    <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-emerald-700">
+                    <span className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200/60">
                       <Check className="w-3.5 h-3.5" />
                       Included
                     </span>
                   ) : (
-                    <span className="font-mono text-[11.5px] font-bold text-[#171B22]">
-                      {row.clearline}
-                    </span>
+                    <span className="font-mono text-xs font-bold text-slate-900">{row.clearline}</span>
                   )}
                 </div>
 
-                {/* EMS column */}
-                <div className="px-4 py-5 md:text-center">
-                  <div className="md:hidden font-mono text-[9px] uppercase tracking-[0.16em] text-[#171B22]/45 mb-1">
-                    China Post / EMS
-                  </div>
-                  {row.ems === false ? (
-                    <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-[#171B22]/35">
+                {/* Traditional Postal Column */}
+                <div className="px-4 py-4.5 text-center flex items-center justify-center">
+                  {row.postal === false ? (
+                    <span className="inline-flex items-center gap-1 font-mono text-xs text-slate-400">
                       <X className="w-3.5 h-3.5" />
-                      Not available
+                      No
                     </span>
                   ) : (
-                    <span className="font-mono text-[11.5px] text-[#171B22]/65">
-                      {row.ems}
-                    </span>
+                    <span className="font-mono text-xs text-slate-500">{row.postal}</span>
                   )}
                 </div>
 
-                {/* Traditional column */}
-                <div className="px-4 py-5 md:text-center">
-                  <div className="md:hidden font-mono text-[9px] uppercase tracking-[0.16em] text-[#171B22]/45 mb-1">
-                    Brokers
-                  </div>
+                {/* Brokers Column */}
+                <div className="px-4 py-4.5 text-center flex items-center justify-center">
                   {row.traditional === false ? (
-                    <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-[#171B22]/35">
+                    <span className="inline-flex items-center gap-1 font-mono text-xs text-slate-400">
                       <X className="w-3.5 h-3.5" />
-                      Not available
+                      No
                     </span>
                   ) : (
-                    <span className="font-mono text-[11.5px] text-[#171B22]/65">
-                      {row.traditional}
-                    </span>
+                    <span className="font-mono text-xs text-slate-500">{row.traditional}</span>
                   )}
                 </div>
               </li>
@@ -199,36 +155,49 @@ export default function WhyChooseUs() {
           </ul>
         </div>
 
-        {/* ── Bottom strip ───────────────────────────────────── */}
-        <div
-          className="mt-12 pt-8 border-t border-[#171B22]/10 flex flex-wrap items-center justify-between gap-6"
-          data-aos="fade-up"
-          data-aos-delay="150"
-        >
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="flex items-center gap-1.5 text-[#171B22]/55">
-              <Shield className="w-3.5 h-3.5 text-emerald-500" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em]">
-                HMRC registered
-              </span>
-            </span>
-            <span className="w-px h-4 bg-[#171B22]/15" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#171B22]/55">
-              No hidden fees
-            </span>
-            <span className="w-px h-4 bg-[#171B22]/15" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#171B22]/55">
-              UK-based support
-            </span>
-          </div>
+        {/* ── Mobile Responsive Cards (Displayed on phones for zero-zoom readability) ── */}
+        <div className="md:hidden space-y-4" data-aos="fade-up">
+          {comparisons.map((row, idx) => (
+            <div key={idx} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs">
+              <div className="font-bold text-base text-slate-900">{row.feature}</div>
+              <div className="mt-1 text-xs text-slate-500 leading-relaxed">{row.detail}</div>
 
-          <Link
-            to="/pricing"
-            className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] font-bold text-[#171B22] hover:text-[#F45B0B] transition-colors"
-          >
-            See full rate comparison
-            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
-          </Link>
+              <div className="mt-4 pt-3 border-t border-slate-100 grid grid-cols-2 gap-3 text-xs font-mono">
+                <div className="rounded-xl bg-[#FFB000]/10 border border-[#FFB000]/30 p-2.5">
+                  <div className="text-[10px] uppercase text-slate-600 font-bold mb-1">ClearLine</div>
+                  {row.clearline === true ? (
+                    <span className="inline-flex items-center gap-1 text-emerald-800 font-bold">
+                      <Check className="w-3.5 h-3.5" />
+                      Included
+                    </span>
+                  ) : (
+                    <span className="font-bold text-slate-900">{row.clearline}</span>
+                  )}
+                </div>
+
+                <div className="rounded-xl bg-slate-50 border border-slate-200 p-2.5">
+                  <div className="text-[10px] uppercase text-slate-400 font-bold mb-1">Traditional Postal</div>
+                  {row.postal === false ? (
+                    <span className="text-slate-400 flex items-center gap-1">
+                      <X className="w-3.5 h-3.5" />
+                      Not included
+                    </span>
+                  ) : (
+                    <span className="text-slate-600">{row.postal}</span>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom trust strip */}
+        <div className="mt-12 pt-8 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-slate-500">
+          <div className="flex items-center gap-2">
+            <Shield className="w-4 h-4 text-emerald-600" />
+            <span>100% HMRC Registered &amp; DDP Handled</span>
+          </div>
+          <div>No hidden taxes · Real-time UK milestone tracking</div>
         </div>
       </div>
     </section>

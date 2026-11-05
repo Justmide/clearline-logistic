@@ -190,7 +190,7 @@ export default function RegisterPage() {
                   ) : (
                     <>
                       <Copy className="w-3.5 h-3.5 text-[#F45B0B]" />
-                      <span>Copy for Taobao / 1688</span>
+                      <span>Copy Chinese Address</span>
                     </>
                   )}
                 </button>
@@ -243,7 +243,7 @@ export default function RegisterPage() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Alexander Wright"
-                    className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-[13px] outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                    className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
                   />
                 </label>
 
@@ -259,7 +259,7 @@ export default function RegisterPage() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="name@domain.co.uk"
-                      className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-[13px] font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                      className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
                     />
                   </label>
 
@@ -274,7 +274,7 @@ export default function RegisterPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="07700 900123"
-                      className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-[13px] font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                      className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
                     />
                   </label>
                 </div>
@@ -290,7 +290,7 @@ export default function RegisterPage() {
                     value={formData.address}
                     onChange={handleChange}
                     placeholder="House no · Street · City · Postcode"
-                    className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-[13px] outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                    className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
                   />
                 </label>
 
@@ -305,7 +305,7 @@ export default function RegisterPage() {
                     value={formData.password}
                     onChange={handleChange}
                     placeholder="••••••••"
-                    className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-[13px] font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                    className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
                   />
                 </label>
 

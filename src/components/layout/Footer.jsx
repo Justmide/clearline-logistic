@@ -5,9 +5,9 @@ import logo from "../../assets/logo.jpeg";
 const shippingServices = [
   { name: "Air Freight · 8–15 days", href: "/#rates" },
   { name: "Ocean freight · FCL / LCL", href: "/#services" },
-  { name: "Taobao & 1688 consolidation", href: "/#services" },
+  { name: "Multi-supplier parcel consolidation", href: "/#services" },
   { name: "UK customs DDP clearance", href: "/#services" },
-  { name: "Amazon FBA & B2B", href: "/#services" },
+  { name: "Commercial & B2B Freight", href: "/#services" },
 ];
 
 const clientLinks = [

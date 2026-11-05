@@ -51,7 +51,7 @@ export default function PrivacyLegal() {
             <ul className="list-disc list-inside space-y-1 text-slate-600 pl-2 text-xs sm:text-sm">
               <li>To receive, inspect, store, and consolidate packages at our Shenzhen and Guangzhou receiving hubs.</li>
               <li>To submit electronic import customs declarations to HM Revenue &amp; Customs (HMRC) under DDP terms.</li>
-              <li>To dispatch and track domestic last-mile deliveries with courier partners (DPD UK, Royal Mail, FedEx UK).</li>
+              <li>To dispatch and track domestic last-mile deliveries with licensed UK courier partners.</li>
               <li>To provide real-time shipment milestone SMS and email notifications.</li>
             </ul>
           </section>

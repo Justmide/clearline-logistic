@@ -111,7 +111,7 @@ export default function LoginPage() {
                 value={identifier}
                 onChange={(e) => setIdentifier(e.target.value)}
                 placeholder="name@domain.com  ·  CL-UK-8842"
-                className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-[13px] font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
               />
             </label>
 
@@ -138,7 +138,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-[13px] font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
               />
             </label>
 

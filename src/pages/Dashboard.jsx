@@ -238,7 +238,7 @@ export default function DashboardPage() {
                     ) : (
                       <>
                         <Copy className="w-3.5 h-3.5 text-[#FFB000]" />
-                        Copy for Taobao / 1688
+                        Copy Chinese Address
                       </>
                     )}
                   </span>
@@ -260,7 +260,7 @@ export default function DashboardPage() {
                 {[
                   {
                     n: "01",
-                    text: "Order from any Chinese platform (Taobao, 1688, Weidian, JD, or factory) to your suite address above.",
+                    text: "Order from any Chinese platform, wholesale supplier, or factory to your suite address above.",
                   },
                   {
                     n: "02",
@@ -440,14 +440,14 @@ export default function DashboardPage() {
                       onChange={(e) =>
                         setPreAlertForm({ ...preAlertForm, carrier: e.target.value })
                       }
-                      className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-[13px] outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] cursor-pointer"
+                      className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] cursor-pointer"
                     >
                       <option>SF Express (顺丰速运)</option>
                       <option>ZTO Express (中通快递)</option>
                       <option>YTO Express (圆通速递)</option>
                       <option>J&amp;T Express (极兔速递)</option>
                       <option>STOCourier (申通快递)</option>
-                      <option>China Post (EMS)</option>
+                      <option>Standard Postal Courier</option>
                       <option>Other / Factory Delivery</option>
                     </select>
                   </label>
@@ -464,7 +464,7 @@ export default function DashboardPage() {
                       onChange={(e) =>
                         setPreAlertForm({ ...preAlertForm, domesticTracking: e.target.value })
                       }
-                      className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-[13px] font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                      className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
                     />
                   </label>
 
@@ -479,7 +479,7 @@ export default function DashboardPage() {
                       onChange={(e) =>
                         setPreAlertForm({ ...preAlertForm, itemDescription: e.target.value })
                       }
-                      className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-[13px] outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                      className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
                     />
                   </label>
 

@@ -63,13 +63,13 @@ export const searchIndex = [
   },
   {
     id: "service-consolidation",
-    title: "Taobao, 1688 & JD Package Consolidation",
+    title: "Multi-Supplier Package Consolidation",
     category: "Services",
     icon: Package,
     href: "/#services",
     tag: "Save 40–60%",
     desc: "Combine multiple merchant boxes into one reinforced box. Free inspection & HD photo verification.",
-    keywords: ["consolidation", "repacking", "taobao", "1688", "weidian", "jd", "combine parcels"],
+    keywords: ["consolidation", "repacking", "suppliers", "factories", "merchants", "combine parcels"],
     featured: true,
   },
   {
@@ -109,8 +109,8 @@ export const searchIndex = [
     icon: MapPin,
     href: "/#about",
     tag: "UK Distribution",
-    desc: "Fast customs clearance and direct handover to DPD UK and Royal Mail Tracked for last-mile delivery.",
-    keywords: ["heathrow", "london", "dpd", "royal mail", "doorstep", "delivery"],
+    desc: "Fast customs clearance and direct handover to licensed UK couriers for doorstep last-mile delivery.",
+    keywords: ["heathrow", "london", "courier", "doorstep", "delivery"],
   },
 ];
 
@@ -187,7 +187,7 @@ export default function SearchModal({ isOpen, onClose }) {
               setSelectedIndex(0);
             }}
             placeholder="Search China → UK shipping services, tracking, rates, or login..."
-            className="w-full text-sm sm:text-base outline-none bg-transparent text-slate-900 placeholder:text-slate-400 font-sans"
+            className="w-full text-base sm:text-base outline-none bg-transparent text-slate-900 placeholder:text-slate-400 font-sans"
           />
           <button
             onClick={onClose}

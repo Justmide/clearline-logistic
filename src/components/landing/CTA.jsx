@@ -5,18 +5,18 @@ export default function CTA() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[#171B22] text-white py-20 sm:py-28"
+      className="relative overflow-hidden bg-[#0B1320] text-white py-20 sm:py-28"
     >
       {/* Ambient glows */}
       <div
         aria-hidden="true"
         className="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[450px] rounded-full opacity-30 blur-[140px] pointer-events-none"
-        style={{ background: "radial-gradient(circle, #FFB00055, transparent 70%)" }}
+        
       />
       <div
         aria-hidden="true"
         className="absolute -bottom-40 right-0 w-[500px] h-[400px] rounded-full opacity-25 blur-[140px] pointer-events-none"
-        style={{ background: "radial-gradient(circle, #F45B0B44, transparent 70%)" }}
+        
       />
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -34,13 +34,7 @@ export default function CTA() {
         <h2 className="text-[34px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-[-0.03em] leading-[1.02] text-white" data-aos="fade-up" data-aos-delay="50">
           Ready to ship from China
           <br />
-          <span className="relative inline-block">
-            <span className="relative z-10">without the hassle?</span>
-            <span
-              aria-hidden="true"
-              className="absolute left-0 right-0 bottom-[0.08em] h-[0.32em] bg-[#FFB000]/40 -skew-x-6 -z-0"
-            />
-          </span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB000] to-[#FFD166]">without the friction.</span>
         </h2>
 
         {/* Sub */}

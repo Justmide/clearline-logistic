@@ -22,7 +22,7 @@ export function getChinaWarehouseAddress(suiteId = "CL-UK-8842") {
     addressEn: `Room 302, Building B, Logistics Innovation Hub, Bao'an District, Shenzhen, Guangdong, China (Suite: ${suiteId})`,
     addressCn: `广东省深圳市宝安区物流产业园B栋302室 (${suiteId})`,
     postcode: "518101",
-    instructions: "Paste this exact address into your Taobao, 1688, JD, or supplier shipping form. Include your Suite ID on the label.",
+    instructions: "Paste this exact address into your Chinese supplier, manufacturer, or merchant shipping form. Include your Suite ID on the label.",
   };
 }
 
@@ -121,7 +121,7 @@ export const DEMO_SHIPMENTS = [
     destination: "London, UK",
     weight: "4.8 kg",
     packagesCount: 3,
-    contents: "Consumer electronics, apparel (Taobao consolidation)",
+    contents: "Consumer electronics, apparel (Multi-package consolidation)",
     estimatedDelivery: "3 business days",
     lastLocation: "Flight CZ-307 departed Guangzhou Baiyun → London Heathrow",
     timeline: [
@@ -142,9 +142,9 @@ export const DEMO_SHIPMENTS = [
     packagesCount: 1,
     contents: "Commercial product samples",
     estimatedDelivery: "Tomorrow",
-    lastLocation: "Heathrow Logistics Centre — Transferred to DPD UK",
+    lastLocation: "Heathrow Logistics Centre — Transferred to Domestic UK Courier",
     timeline: [
-      { date: "Oct 13, 07:15", text: "HMRC Customs Cleared (DDP Paid). Handed to DPD UK", active: true },
+      { date: "Oct 13, 07:15", text: "HMRC Customs Cleared (DDP Paid). Handed to Domestic UK Courier", active: true },
       { date: "Oct 12, 19:40", text: "Arrived at London Heathrow Airport (LHR)", active: false },
       { date: "Oct 10, 08:30", text: "Dispatched from Guangzhou Baiyun Airport", active: false },
     ],
@@ -163,7 +163,7 @@ export const DEMO_SHIPMENTS = [
     lastLocation: "Delivered to recipient address — Signed by Alexander Wright",
     timeline: [
       { date: "Oct 05, 14:22", text: "Delivered to doorstep in Birmingham. Signed by A. Wright", active: true },
-      { date: "Oct 04, 09:10", text: "Out for delivery with Royal Mail ParcelForce", active: false },
+      { date: "Oct 04, 09:10", text: "Out for final doorstep delivery with National Courier Network", active: false },
       { date: "Oct 01, 16:00", text: "Vessel docked at Port of Felixstowe, UK customs cleared", active: false },
     ],
   },
