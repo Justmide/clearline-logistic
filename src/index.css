@@ -159,3 +159,15 @@ a[role="button"]:active,
   content-visibility: auto;
   contain-intrinsic-size: 1px 650px;
 }
+
+/* ── 2500ms Smooth Cargo Loader Progress Fill ── */
+@keyframes cl-progress-fill {
+  0%   { width: 4%; }
+  35%  { width: 40%; }
+  70%  { width: 78%; }
+  100% { width: 100%; }
+}
+
+.animate-progress-fill {
+  animation: cl-progress-fill 2.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

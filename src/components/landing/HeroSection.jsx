@@ -26,18 +26,10 @@ export default function HeroSection() {
   const [cargoType, setCargoType] = useState("general");
 
   useEffect(() => {
-    const startVideo = () => {
-      if (videoRef.current) {
-        videoRef.current.defaultMuted = true;
-        videoRef.current.muted = true;
-        videoRef.current.play().catch(() => {});
-      }
-    };
-    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
-      window.requestIdleCallback(startVideo, { timeout: 1200 });
-    } else {
-      const timer = setTimeout(startVideo, 200);
-      return () => clearTimeout(timer);
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
     }
   }, []);
 

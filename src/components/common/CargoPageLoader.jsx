@@ -74,14 +74,8 @@ export default function CargoPageLoader({ isVisible, label = "Connecting China â
           </p>
 
           {/* Micro progress line */}
-          <div className="mt-4 w-36 h-0.5 bg-white/10 rounded-full overflow-hidden mx-auto">
-            <div
-              className="h-full bg-gradient-to-r from-[#FFB000] via-[#F45B0B] to-[#FFD166] rounded-full animate-pulse"
-              style={{
-                width: "100%",
-                animation: "pulse 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-              }}
-            />
+          <div className="mt-4 w-40 h-1 bg-white/10 rounded-full overflow-hidden mx-auto">
+            <div className="h-full bg-gradient-to-r from-[#FFB000] via-[#F45B0B] to-[#FFD166] rounded-full animate-progress-fill" />
           </div>
         </div>
       </div>
