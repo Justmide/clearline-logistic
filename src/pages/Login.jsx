@@ -45,82 +45,75 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F4F5F7] text-[#171B22] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      {/* Ambient glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none fixed -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[450px] rounded-full opacity-[0.22] blur-[140px]"
-        style={{ background: "radial-gradient(circle, #FFB00055, transparent 70%)" }}
-      />
-
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="relative sm:mx-auto sm:w-full sm:max-w-md text-center px-4">
         {/* Back to home */}
         <div className="flex justify-center mb-6">
           <Link
             to="/"
-            className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] font-bold text-[#171B22]/45 hover:text-[#F45B0B] transition-colors"
+            className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider font-bold text-slate-600 hover:text-[#F45B0B] transition-colors"
           >
-            ← Back to home
+            ← Back to Homepage
           </Link>
         </div>
 
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#171B22]/10 bg-white">
-          <span className="w-1 h-1 rounded-full bg-[#F45B0B]" />
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#171B22]/60">
-            Client shipping portal
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-slate-300 bg-white shadow-2xs">
+          <span className="w-2 h-2 rounded-full bg-[#F45B0B]" />
+          <span className="font-mono text-xs uppercase tracking-wider text-slate-700 font-bold">
+            Client Shipping Portal
           </span>
         </div>
 
-        <h1 className="mt-5 text-[28px] sm:text-[34px] font-extrabold tracking-[-0.03em] leading-[1.05] text-[#171B22]">
-          Welcome back.
+        <h1 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0B1320]">
+          Welcome Back
         </h1>
-        <p className="mt-3 text-[13px] sm:text-sm text-[#171B22]/60 leading-relaxed max-w-sm mx-auto">
+        <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed max-w-sm mx-auto">
           Log in to manage your China warehouse suite, incoming parcels, and UK deliveries.
         </p>
       </div>
 
       <div className="relative mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4">
-        <div className="bg-white py-8 px-6 sm:px-8 rounded-2xl border border-[#171B22]/10 shadow-[0_20px_50px_-20px_rgba(23,27,34,0.15)]">
+        <div className="bg-white py-8 px-6 sm:px-8 rounded-2xl border border-slate-200 shadow-md">
           {/* Card header */}
-          <div className="flex items-center justify-between mb-6 pb-5 border-b border-[#171B22]/8">
+          <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-200 bg-slate-50 -mx-6 sm:-mx-8 -mt-8 px-6 sm:px-8 pt-5 rounded-t-2xl">
             <div className="flex items-center gap-2">
-              <Package className="w-3.5 h-3.5 text-[#F45B0B]" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#171B22]/55">
-                Sign in
+              <Package className="w-4 h-4 text-[#F45B0B]" />
+              <span className="font-mono text-xs uppercase tracking-wider font-bold text-slate-800">
+                Client Sign In
               </span>
             </div>
-            <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-emerald-50 border border-emerald-200 font-mono text-[9px] uppercase tracking-[0.14em] font-bold text-emerald-700">
-              <ShieldCheck className="w-3 h-3" />
-              Secure
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-50 border border-emerald-300 font-mono text-xs uppercase tracking-wider font-bold text-emerald-800">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              Secure 256-Bit
             </span>
           </div>
 
           {error && (
-            <div className="mb-5 px-3.5 py-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-[12px] flex items-start gap-2.5">
+            <div className="mb-5 px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-red-800 text-sm flex items-start gap-2.5">
               <AlertCircle className="w-4 h-4 shrink-0 text-red-600 mt-0.5" />
-              <span className="leading-snug">{error}</span>
+              <span className="leading-snug font-medium">{error}</span>
             </div>
           )}
 
-          <form onSubmit={handleLogin} className="space-y-5">
+          <form onSubmit={handleLogin} className="space-y-4">
             <label className="block">
-              <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-[#171B22]/55 font-bold mb-1.5">
-                Email or China suite ID
+              <span className="block text-sm font-semibold text-slate-800 mb-1.5">
+                Email Address or China Suite ID <span className="text-[#F45B0B]">*</span>
               </span>
               <input
                 type="text"
                 required
                 value={identifier}
                 onChange={(e) => setIdentifier(e.target.value)}
-                placeholder="name@domain.com  ·  CL-UK-8842"
-                className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                placeholder="name@domain.com or CL-UK-8842"
+                className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-base text-slate-900 font-medium outline-none focus:border-[#F45B0B] focus:ring-4 focus:ring-orange-500/10 transition-all placeholder:text-slate-400"
               />
             </label>
 
             <label className="block">
               <div className="flex items-center justify-between mb-1.5">
-                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#171B22]/55 font-bold">
-                  Password
+                <span className="text-sm font-semibold text-slate-800">
+                  Password <span className="text-[#F45B0B]">*</span>
                 </span>
                 <button
                   type="button"
@@ -129,7 +122,7 @@ export default function LoginPage() {
                       "For this demonstration, use any password or click the demo fill button below."
                     )
                   }
-                  className="font-mono text-[10px] uppercase tracking-[0.14em] font-bold text-[#171B22]/55 hover:text-[#F45B0B] transition-colors"
+                  className="font-mono text-xs font-bold text-slate-500 hover:text-[#F45B0B] transition-colors"
                 >
                   Forgot?
                 </button>
@@ -140,67 +133,61 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-base text-slate-900 font-medium outline-none focus:border-[#F45B0B] focus:ring-4 focus:ring-orange-500/10 transition-all placeholder:text-slate-400"
               />
             </label>
 
             <button
               type="submit"
               disabled={loading}
-              className="group w-full py-3.5 px-4 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] active:scale-[0.98] text-[#171B22] hover:text-white font-mono text-[11px] font-bold uppercase tracking-[0.14em] transition-all duration-150 shadow-[0_8px_30px_-8px_rgba(255,176,0,0.6)] hover:shadow-[0_12px_36px_-8px_rgba(244,91,11,0.6)] disabled:opacity-75 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+              className="group w-full mt-2 py-3.5 px-5 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] active:scale-[0.98] text-[#0B1320] hover:text-white font-mono text-sm font-bold uppercase tracking-wider transition-all duration-150 shadow-md disabled:opacity-75 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
             >
               {loading ? (
                 <>
-                  <Loader2 className="w-4 h-4 animate-spin text-[#171B22]" />
+                  <Loader2 className="w-4 h-4 animate-spin text-[#0B1320]" />
                   <span>Signing in to China Suite…</span>
                 </>
               ) : (
                 <>
                   <LogIn className="w-4 h-4" />
-                  <span>Sign in</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                  <span>Sign In</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </>
               )}
             </button>
           </form>
 
           {/* Demo quick fill */}
-          <div className="mt-6 pt-5 border-t border-[#171B22]/8 flex justify-center">
+          <div className="mt-6 pt-5 border-t border-slate-200 flex justify-center">
             <button
               type="button"
               onClick={handleDemoFill}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#F4F5F7] border border-[#171B22]/10 hover:border-[#FFB000]/50 hover:bg-[#FFB000]/10 font-mono text-[10px] uppercase tracking-[0.14em] font-bold text-[#171B22]/65 hover:text-[#171B22] transition-all"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-300 font-mono text-xs uppercase tracking-wider font-bold text-slate-800 transition-all active:scale-95 cursor-pointer"
             >
-              <Sparkles className="w-3 h-3 text-[#F45B0B]" />
-              Fill demo credentials
+              <Sparkles className="w-3.5 h-3.5 text-[#F45B0B]" />
+              Fill Demo Credentials
             </button>
           </div>
 
           {/* Register link */}
-          <div className="mt-6 pt-5 border-t border-[#171B22]/8 text-center">
-            <p className="text-[12px] text-[#171B22]/60">
+          <div className="mt-6 pt-5 border-t border-slate-200 text-center">
+            <p className="text-sm text-slate-600 font-medium">
               New to China → UK forwarding?{" "}
               <Link
                 to="/register"
-                className="font-mono text-[10px] uppercase tracking-[0.14em] font-bold text-[#171B22] hover:text-[#F45B0B] underline underline-offset-4 decoration-[#FFB000] decoration-2 transition-colors"
+                className="font-bold text-[#0B1320] hover:text-[#F45B0B] underline underline-offset-4 decoration-[#FFB000] decoration-2 transition-colors ml-1"
               >
-                Create account →
+                Create Account →
               </Link>
             </p>
           </div>
         </div>
 
         {/* Security badges */}
-        <div className="mt-6 flex items-center justify-center gap-4">
-          <span className="inline-flex items-center gap-1.5 text-[#171B22]/45">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-            <span className="font-mono text-[9px] uppercase tracking-[0.16em]">
-              256-bit SSL encrypted
-            </span>
-          </span>
-          <span className="w-px h-3.5 bg-[#171B22]/15" />
-          <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#171B22]/45">
-            HMRC DDP compliant
+        <div className="mt-6 flex items-center justify-center gap-4 text-xs font-mono font-bold text-slate-600">
+          <span className="inline-flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 text-emerald-600" />
+            <span>256-Bit SSL Encrypted Session</span>
           </span>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState, lazy, Suspense } from "react";
+import { useEffect, useLayoutEffect, useState, useRef, lazy, Suspense } from "react";
 import { Route, Routes, useLocation, Link, Navigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -7,6 +7,7 @@ import { ArrowUp, AlertTriangle } from "lucide-react";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ComplianceNotice from "./components/common/ComplianceNotice";
+import CargoPageLoader from "./components/common/CargoPageLoader";
 import LandingPage from "./pages/LandingPage";
 
 // Code-split secondary routes for rapid initial landing page paint and high Lighthouse scores
@@ -92,7 +93,50 @@ function NotFoundPage() {
 }
 
 function App() {
+  const location = useLocation();
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isInitialLoading, setIsInitialLoading] = useState(true);
+  const [isPageTransitioning, setIsPageTransitioning] = useState(false);
+  const [loaderMessage, setLoaderMessage] = useState("Connecting China ➔ UK Freight Corridor");
+  const previousPathRef = useRef(location.pathname);
+  const isFirstRender = useRef(true);
+
+  // Initial site visit: ensure cargo loading animation prepares video and website details
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsInitialLoading(false);
+    }, 650);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Moving from one page to another: show the same cargo circle animation and transition smoothly
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
+    if (previousPathRef.current !== location.pathname) {
+      previousPathRef.current = location.pathname;
+
+      let msg = "Connecting Route…";
+      if (location.pathname === "/") msg = "Preparing UK Freight Corridor…";
+      else if (location.pathname.includes("dashboard")) msg = "Opening Client Suite Portal…";
+      else if (location.pathname.includes("login")) msg = "Accessing China Suite…";
+      else if (location.pathname.includes("signup") || location.pathname.includes("register")) msg = "Preparing China Suite Registration…";
+      else if (location.pathname.includes("about")) msg = "Loading ClearLine Route Details…";
+      else if (location.pathname.includes("privacy") || location.pathname.includes("terms")) msg = "Loading Legal & Compliance…";
+
+      setLoaderMessage(msg);
+      setIsPageTransitioning(true);
+
+      const timer = setTimeout(() => {
+        setIsPageTransitioning(false);
+      }, 420);
+
+      return () => clearTimeout(timer);
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     AOS.init({
@@ -126,16 +170,19 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 flex flex-col justify-between overflow-x-clip w-full max-w-full font-sans">
+      {/* ── Global Cargo Circular Loading Overlay (Initial Visit & Smooth Page Transitions) ── */}
+      <CargoPageLoader
+        isVisible={isInitialLoading || isPageTransitioning}
+        label={loaderMessage}
+      />
+
       <ScrollToTop />
       <Navbar />
 
       <main className="flex-grow w-full max-w-full overflow-x-clip">
         <Suspense
           fallback={
-            <div className="min-h-[50vh] flex flex-col items-center justify-center gap-3">
-              <div className="w-8 h-8 rounded-full border-2 border-slate-200 border-t-[#F45B0B] animate-spin" />
-              <span className="font-mono text-xs text-slate-500 uppercase tracking-wider">Loading ClearLine Portal…</span>
-            </div>
+            <CargoPageLoader isVisible={true} label={loaderMessage} />
           }
         >
           <Routes>

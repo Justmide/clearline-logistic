@@ -61,90 +61,83 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F4F5F7] text-[#171B22] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      {/* Ambient glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none fixed -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[450px] rounded-full opacity-[0.22] blur-[140px]"
-        style={{ background: "radial-gradient(circle, #FFB00055, transparent 70%)" }}
-      />
-
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="relative sm:mx-auto sm:w-full sm:max-w-md text-center px-4">
         {/* Back to home */}
         <div className="flex justify-center mb-6">
           <Link
             to="/"
-            className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] font-bold text-[#171B22]/45 hover:text-[#F45B0B] transition-colors"
+            className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider font-bold text-slate-600 hover:text-[#F45B0B] transition-colors"
           >
-            ← Back to home
+            ← Back to Homepage
           </Link>
         </div>
 
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#171B22]/10 bg-white">
-          <span className="w-1 h-1 rounded-full bg-[#F45B0B]" />
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#171B22]/60">
-            Instant China warehouse suite
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-slate-300 bg-white shadow-2xs">
+          <span className="w-2 h-2 rounded-full bg-[#F45B0B]" />
+          <span className="font-mono text-xs uppercase tracking-wider text-slate-700 font-bold">
+            Instant China Warehouse Suite
           </span>
         </div>
 
-        <h1 className="mt-5 text-[28px] sm:text-[34px] font-extrabold tracking-[-0.03em] leading-[1.05] text-[#171B22]">
-          Create your account.
+        <h1 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0B1320]">
+          Create Your Account
         </h1>
-        <p className="mt-3 text-[13px] sm:text-sm text-[#171B22]/60 leading-relaxed max-w-sm mx-auto">
-          Get your free personal China receiving suite and direct UK parcel forwarding.
+        <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed max-w-sm mx-auto">
+          Get your personal Shenzhen receiving suite and direct UK DDP door-to-door delivery.
         </p>
       </div>
 
       <div className="relative mt-8 sm:mx-auto sm:w-full sm:max-w-xl px-4">
         {newlyRegistered ? (
           /* ── SUCCESS STATE ─────────────────────────────────── */
-          <div className="bg-white rounded-2xl border border-[#171B22]/10 shadow-[0_20px_50px_-20px_rgba(23,27,34,0.15)] overflow-hidden">
+          <div className="bg-white rounded-2xl border border-slate-200 shadow-lg overflow-hidden">
             {/* Card header */}
-            <div className="px-6 sm:px-8 py-5 border-b border-[#171B22]/8 flex items-center justify-between">
+            <div className="px-6 sm:px-8 py-5 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-emerald-500" />
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#171B22]/55">
-                  Account created
+                <CheckCircle className="w-5 h-5 text-emerald-600" />
+                <span className="font-mono text-xs uppercase tracking-wider font-bold text-slate-800">
+                  Account Active &amp; Verified
                 </span>
               </div>
-              <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-emerald-50 border border-emerald-200 font-mono text-[9px] uppercase tracking-[0.14em] font-bold text-emerald-700">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                Active
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-100 border border-emerald-300 font-mono text-xs uppercase tracking-wider font-bold text-emerald-800">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                Live
               </span>
             </div>
 
             <div className="px-6 sm:px-8 py-7 text-center">
-              <h2 className="text-[22px] sm:text-[26px] font-extrabold tracking-[-0.02em] text-[#171B22]">
+              <h2 className="text-2xl font-extrabold text-[#0B1320]">
                 Welcome, {newlyRegistered.name?.split(" ")[0]}.
               </h2>
-              <p className="mt-2 text-[13px] text-[#171B22]/60">
-                Your China receiving suite is now live.
+              <p className="mt-1 text-sm text-slate-600">
+                Your China receiving suite address is ready to receive packages.
               </p>
 
               {/* China address card */}
-              <div className="mt-6 rounded-xl border border-[#171B22]/10 bg-[#F4F5F7] text-left overflow-hidden">
+              <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 text-left overflow-hidden">
                 {/* Header row */}
-                <div className="px-4 py-3 flex items-center justify-between border-b border-[#171B22]/8 bg-white">
+                <div className="px-5 py-3.5 flex items-center justify-between border-b border-slate-200 bg-white">
                   <div className="flex items-center gap-2">
-                    <Package className="w-3.5 h-3.5 text-[#F45B0B]" />
-                    <span className="font-mono text-[10px] uppercase tracking-[0.16em] font-bold text-[#171B22]">
-                      China warehouse address
+                    <Package className="w-4 h-4 text-[#F45B0B]" />
+                    <span className="font-mono text-xs uppercase tracking-wider font-bold text-slate-900">
+                      China Warehouse Address
                     </span>
                   </div>
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-[#FFB000] text-[#171B22] font-mono text-[10px] font-bold uppercase tracking-wider">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-[#FFB000] text-[#0B1320] font-mono text-xs font-bold uppercase tracking-wider">
                     {newlyRegistered.suiteId}
                   </span>
                 </div>
 
                 {/* Address body */}
-                <div className="px-4 py-4 space-y-2.5">
+                <div className="px-5 py-4 space-y-3">
                   <div>
-                    <div className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#171B22]/45 mb-1">
+                    <div className="font-mono text-xs uppercase tracking-wider text-slate-500 font-bold mb-0.5">
                       Recipient
                     </div>
-                    <div className="text-[12.5px] font-semibold text-[#171B22] leading-snug">
+                    <div className="text-sm font-bold text-slate-900">
                       {getChinaWarehouseAddress(newlyRegistered.suiteId).recipientCn}
-                      <span className="text-[#171B22]/50 font-normal">
+                      <span className="text-slate-600 font-normal">
                         {" "}
                         ({getChinaWarehouseAddress(newlyRegistered.suiteId).recipientEn})
                       </span>
@@ -152,28 +145,28 @@ export default function RegisterPage() {
                   </div>
 
                   <div>
-                    <div className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#171B22]/45 mb-1">
-                      Phone
+                    <div className="font-mono text-xs uppercase tracking-wider text-slate-500 font-bold mb-0.5">
+                      Phone Number
                     </div>
-                    <div className="font-mono text-[12px] text-[#171B22]">
+                    <div className="font-mono text-sm font-bold text-slate-900">
                       {getChinaWarehouseAddress().phone}
                     </div>
                   </div>
 
                   <div>
-                    <div className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#171B22]/45 mb-1">
-                      Address (Chinese)
+                    <div className="font-mono text-xs uppercase tracking-wider text-slate-500 font-bold mb-0.5">
+                      Address (Chinese - For Suppliers)
                     </div>
-                    <div className="text-[12.5px] font-semibold text-[#171B22] leading-snug">
+                    <div className="text-sm font-bold text-slate-900 leading-snug">
                       {getChinaWarehouseAddress(newlyRegistered.suiteId).addressCn}
                     </div>
                   </div>
 
                   <div>
-                    <div className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#171B22]/45 mb-1">
+                    <div className="font-mono text-xs uppercase tracking-wider text-slate-500 font-bold mb-0.5">
                       Address (English)
                     </div>
-                    <div className="text-[11.5px] text-[#171B22]/70 leading-snug">
+                    <div className="text-xs text-slate-700 leading-snug font-mono">
                       {getChinaWarehouseAddress(newlyRegistered.suiteId).addressEn}
                     </div>
                   </div>
@@ -182,17 +175,17 @@ export default function RegisterPage() {
                 {/* Copy button */}
                 <button
                   onClick={copyAddress}
-                  className="group w-full px-4 py-3 border-t border-[#171B22]/8 bg-white hover:bg-[#FFB000]/[0.08] transition-colors flex items-center justify-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] font-bold text-[#171B22] cursor-pointer"
+                  className="group w-full px-4 py-3.5 border-t border-slate-200 bg-white hover:bg-[#FFB000]/10 transition-colors flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-wider font-bold text-slate-900 cursor-pointer active:scale-[0.98]"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-500" />
-                      <span>Copied to clipboard</span>
+                      <Check className="w-4 h-4 text-emerald-600" />
+                      <span className="text-emerald-700">Copied to Clipboard</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3.5 h-3.5 text-[#F45B0B]" />
-                      <span>Copy Chinese Address</span>
+                      <Copy className="w-4 h-4 text-[#F45B0B]" />
+                      <span>Copy Chinese Address For Supplier</span>
                     </>
                   )}
                 </button>
@@ -201,42 +194,42 @@ export default function RegisterPage() {
               {/* Primary CTA */}
               <button
                 onClick={() => navigate("/dashboard")}
-                className="group mt-6 w-full py-3.5 px-4 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] text-[#171B22] hover:text-white font-mono text-[11px] font-bold uppercase tracking-[0.14em] transition-all duration-200 shadow-[0_8px_30px_-8px_rgba(255,176,0,0.6)] hover:shadow-[0_12px_36px_-8px_rgba(244,91,11,0.6)] flex items-center justify-center gap-2 cursor-pointer"
+                className="group mt-6 w-full py-3.5 px-5 rounded-xl bg-[#0B1320] hover:bg-slate-800 active:scale-[0.98] text-white font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
               >
-                Go to dashboard
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                Go to Client Dashboard
+                <ArrowRight className="w-4 h-4 text-[#FFB000] transition-transform group-hover:translate-x-0.5" />
               </button>
             </div>
           </div>
         ) : (
           /* ── FORM STATE ────────────────────────────────────── */
-          <div className="bg-white rounded-2xl border border-[#171B22]/10 shadow-[0_20px_50px_-20px_rgba(23,27,34,0.15)] overflow-hidden">
+          <div className="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden">
             {/* Card header */}
-            <div className="px-6 sm:px-8 py-5 border-b border-[#171B22]/8 flex items-center justify-between">
+            <div className="px-6 sm:px-8 py-5 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <UserPlus className="w-3.5 h-3.5 text-[#F45B0B]" />
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#171B22]/55">
-                  New account
+                <UserPlus className="w-4 h-4 text-[#F45B0B]" />
+                <span className="font-mono text-xs uppercase tracking-wider font-bold text-slate-800">
+                  New Client Registration
                 </span>
               </div>
-              <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-emerald-50 border border-emerald-200 font-mono text-[9px] uppercase tracking-[0.14em] font-bold text-emerald-700">
-                <ShieldCheck className="w-3 h-3" />
-                Free
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-50 border border-emerald-300 font-mono text-xs uppercase tracking-wider font-bold text-emerald-800">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                100% Free
               </span>
             </div>
 
             <div className="px-6 sm:px-8 py-7">
               {error && (
-                <div className="mb-5 px-3.5 py-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-[12px] flex items-start gap-2.5">
+                <div className="mb-5 px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-red-800 text-sm flex items-start gap-2.5">
                   <AlertCircle className="w-4 h-4 shrink-0 text-red-600 mt-0.5" />
-                  <span className="leading-snug">{error}</span>
+                  <span className="leading-snug font-medium">{error}</span>
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <label className="block">
-                  <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-[#171B22]/55 font-bold mb-1.5">
-                    Full name / business *
+                  <span className="block text-sm font-semibold text-slate-800 mb-1.5">
+                    Full Name or Business Name <span className="text-[#F45B0B]">*</span>
                   </span>
                   <input
                     type="text"
@@ -244,15 +237,15 @@ export default function RegisterPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Alexander Wright"
-                    className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                    placeholder="e.g. Alexander Wright"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-base text-slate-900 font-medium outline-none focus:border-[#F45B0B] focus:ring-4 focus:ring-orange-500/10 transition-all placeholder:text-slate-400"
                   />
                 </label>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <label className="block">
-                    <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-[#171B22]/55 font-bold mb-1.5">
-                      Email *
+                    <span className="block text-sm font-semibold text-slate-800 mb-1.5">
+                      Email Address <span className="text-[#F45B0B]">*</span>
                     </span>
                     <input
                       type="email"
@@ -261,13 +254,13 @@ export default function RegisterPage() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="name@domain.co.uk"
-                      className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-base text-slate-900 font-medium outline-none focus:border-[#F45B0B] focus:ring-4 focus:ring-orange-500/10 transition-all placeholder:text-slate-400"
                     />
                   </label>
 
                   <label className="block">
-                    <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-[#171B22]/55 font-bold mb-1.5">
-                      UK phone *
+                    <span className="block text-sm font-semibold text-slate-800 mb-1.5">
+                      UK Phone Number <span className="text-[#F45B0B]">*</span>
                     </span>
                     <input
                       type="tel"
@@ -276,14 +269,14 @@ export default function RegisterPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="07700 900123"
-                      className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-base text-slate-900 font-medium outline-none focus:border-[#F45B0B] focus:ring-4 focus:ring-orange-500/10 transition-all placeholder:text-slate-400"
                     />
                   </label>
                 </div>
 
                 <label className="block">
-                  <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-[#171B22]/55 font-bold mb-1.5">
-                    UK delivery address *
+                  <span className="block text-sm font-semibold text-slate-800 mb-1.5">
+                    UK Delivery Destination Address <span className="text-[#F45B0B]">*</span>
                   </span>
                   <input
                     type="text"
@@ -291,14 +284,14 @@ export default function RegisterPage() {
                     name="address"
                     value={formData.address}
                     onChange={handleChange}
-                    placeholder="House no · Street · City · Postcode"
-                    className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                    placeholder="House number, Street, City, Postcode"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-base text-slate-900 font-medium outline-none focus:border-[#F45B0B] focus:ring-4 focus:ring-orange-500/10 transition-all placeholder:text-slate-400"
                   />
                 </label>
 
                 <label className="block">
-                  <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-[#171B22]/55 font-bold mb-1.5">
-                    Password * (min. 6)
+                  <span className="block text-sm font-semibold text-slate-800 mb-1.5">
+                    Account Password (min. 6 characters) <span className="text-[#F45B0B]">*</span>
                   </span>
                   <input
                     type="password"
@@ -306,40 +299,40 @@ export default function RegisterPage() {
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
-                    placeholder="••••••••"
-                    className="w-full px-3.5 py-3 rounded-lg border border-[#171B22]/12 bg-white text-base sm:text-sm font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 transition-all text-[#171B22] placeholder:text-[#171B22]/30"
+                    placeholder="Create a secure password"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-base text-slate-900 font-medium outline-none focus:border-[#F45B0B] focus:ring-4 focus:ring-orange-500/10 transition-all placeholder:text-slate-400"
                   />
                 </label>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="group w-full mt-2 py-3.5 px-4 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] active:scale-[0.98] text-[#171B22] hover:text-white font-mono text-[11px] font-bold uppercase tracking-[0.14em] transition-all duration-150 shadow-[0_8px_30px_-8px_rgba(255,176,0,0.6)] hover:shadow-[0_12px_36px_-8px_rgba(244,91,11,0.6)] disabled:opacity-75 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+                  className="group w-full mt-3 py-3.5 px-5 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] active:scale-[0.98] text-[#0B1320] hover:text-white font-mono text-sm font-bold uppercase tracking-wider transition-all duration-150 shadow-md disabled:opacity-75 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
                 >
                   {loading ? (
                     <>
-                      <Loader2 className="w-4 h-4 animate-spin text-[#171B22]" />
+                      <Loader2 className="w-4 h-4 animate-spin text-[#0B1320]" />
                       <span>Assigning Personal China Suite…</span>
                     </>
                   ) : (
                     <>
                       <UserPlus className="w-4 h-4" />
                       <span>Register &amp; Get China Address</span>
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                     </>
                   )}
                 </button>
               </form>
 
               {/* Login link */}
-              <div className="mt-6 pt-5 border-t border-[#171B22]/8 text-center">
-                <p className="text-[12px] text-[#171B22]/60">
-                  Already have an account?{" "}
+              <div className="mt-6 pt-5 border-t border-slate-200 text-center">
+                <p className="text-sm text-slate-600 font-medium">
+                  Already have a China Suite?{" "}
                   <Link
                     to="/login"
-                    className="font-mono text-[10px] uppercase tracking-[0.14em] font-bold text-[#171B22] hover:text-[#F45B0B] underline underline-offset-4 decoration-[#FFB000] decoration-2 transition-colors"
+                    className="font-bold text-[#0B1320] hover:text-[#F45B0B] underline underline-offset-4 decoration-[#FFB000] decoration-2 transition-colors ml-1"
                   >
-                    Log in →
+                    Log In to Portal →
                   </Link>
                 </p>
               </div>
@@ -348,21 +341,15 @@ export default function RegisterPage() {
         )}
 
         {/* Trust strip */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-          <span className="inline-flex items-center gap-1.5 text-[#171B22]/45">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-            <span className="font-mono text-[9px] uppercase tracking-[0.16em]">
-              100% free registration
-            </span>
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-mono font-bold text-slate-600">
+          <span className="inline-flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 text-emerald-600" />
+            <span>100% Free Registration</span>
           </span>
-          <span className="w-px h-3.5 bg-[#171B22]/15" />
-          <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#171B22]/45">
-            No subscription
-          </span>
-          <span className="w-px h-3.5 bg-[#171B22]/15" />
-          <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#171B22]/45">
-            Pay per shipment
-          </span>
+          <span className="w-1 h-1 rounded-full bg-slate-300" />
+          <span>No Monthly Subscription</span>
+          <span className="w-1 h-1 rounded-full bg-slate-300" />
+          <span>HMRC DDP Handled</span>
         </div>
       </div>
     </div>

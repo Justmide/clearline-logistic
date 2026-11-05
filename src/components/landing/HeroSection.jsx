@@ -93,17 +93,16 @@ export default function HeroSection() {
       {/* ── Background Video (Fully Visible & Vibrant) ──────── */}
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover hidden sm:block pointer-events-none"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         autoPlay
         loop
         muted
         defaultMuted
         playsInline
-        preload="metadata"
+        preload="auto"
         aria-hidden="true"
       >
         <source src="/assets/videos/hero-cargo.mp4" type="video/mp4" />
-        <source src="/videos/hero-cargo.mp4" type="video/mp4" />
       </video>
 
       {/* ── Subtle Cinematic Overlays for Text Legibility ───── */}
