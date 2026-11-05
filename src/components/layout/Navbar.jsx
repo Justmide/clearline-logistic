@@ -6,10 +6,10 @@ import SearchModal from "../common/SearchModal";
 import { getCurrentUser, logoutUser } from "../../utils/auth";
 
 const marketingLinks = [
-  { name: "UK Rates & How It Works", href: "/#rates" },
-  { name: "Shipping Services", href: "/#services" },
+  { name: "UK Rates & Speeds", href: "/#rates" },
   { name: "Why ClearLine", href: "/#why-us" },
-  { name: "About Route", href: "/#about" },
+  { name: "Contact", href: "/#contact" },
+  { name: "About Us", href: "/about" },
 ];
 
 const dashboardLinks = [

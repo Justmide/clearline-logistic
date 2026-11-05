@@ -3,96 +3,58 @@ import { Link } from "react-router-dom";
 
 export default function CTA() {
   return (
-    <section
-      id="contact"
-      className="relative overflow-hidden bg-[#0B1320] text-white py-20 sm:py-28"
-    >
-      {/* Ambient glows */}
-      <div
-        aria-hidden="true"
-        className="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[450px] rounded-full opacity-30 blur-[140px] pointer-events-none"
-        
-      />
-      <div
-        aria-hidden="true"
-        className="absolute -bottom-40 right-0 w-[500px] h-[400px] rounded-full opacity-25 blur-[140px] pointer-events-none"
-        
-      />
-
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section id="contact" className="bg-[#0B1320] text-white py-14 sm:py-20 border-t border-slate-800">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Chip */}
-        <div className="flex justify-center mb-8" data-aos="fade-up">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md">
-            <Package className="w-3 h-3 text-[#FFB000]" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
-              Start moving today
-            </span>
-          </div>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-5 font-mono text-[10px] uppercase font-bold text-slate-300">
+          <Package className="w-3 h-3 text-[#FFB000]" />
+          Instant Setup
         </div>
 
         {/* Headline */}
-        <h2 className="text-[34px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-[-0.03em] leading-[1.02] text-white" data-aos="fade-up" data-aos-delay="50">
-          Ready to ship from China
-          <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB000] to-[#FFD166]">without the friction.</span>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+          Ready to Ship from China to the UK?
         </h2>
 
-        {/* Sub */}
-        <p className="mt-5 text-[15px] sm:text-base text-white/60 leading-relaxed max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-          Create a free account in 30 seconds to get your personal Shenzhen warehouse suite — or
-          talk to our London team directly.
+        <p className="mt-2.5 text-sm sm:text-base text-slate-300 max-w-lg mx-auto">
+          Create a free account in 30 seconds to get your personal Shenzhen warehouse suite.
         </p>
 
-        {/* CTAs */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3" data-aos="fade-up" data-aos-delay="150">
+        {/* Action Buttons */}
+        <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             to="/signup"
-            className="group inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] text-[#171B22] hover:text-white font-mono text-[11px] font-bold uppercase tracking-[0.14em] transition-all duration-200 shadow-[0_8px_30px_-8px_rgba(255,176,0,0.6)] hover:shadow-[0_12px_36px_-8px_rgba(244,91,11,0.6)]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#FFB000] hover:bg-[#F45B0B] text-[#0B1320] hover:text-white font-mono text-xs font-bold uppercase tracking-wider transition-all"
           >
             <UserPlus className="w-4 h-4" />
-            Get your free China suite
-            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+            Get Free China Suite
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
           <Link
             to="/login"
-            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-xl border border-white/15 hover:border-white/30 bg-white/[0.03] hover:bg-white/[0.06] backdrop-blur-md text-white font-mono text-[11px] font-bold uppercase tracking-[0.14em] transition-all duration-200"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/20 hover:border-white/40 bg-white/5 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all"
           >
-            Client portal sign in
+            Client Portal Login
           </Link>
         </div>
 
-        {/* Contact strip */}
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4" data-aos="fade-up" data-aos-delay="200">
+        {/* Contact Strip */}
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 font-mono text-xs text-slate-400">
           <a
             href="mailto:ops@clearlineexpress.com"
-            className="group inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 hover:text-white transition-colors"
           >
             <Mail className="w-3.5 h-3.5 text-[#FFB000]" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em]">
-              ops@clearlineexpress.com
-            </span>
+            <span>ops@clearlineexpress.com</span>
           </a>
-
-          <span className="hidden sm:block w-px h-4 bg-white/15" />
 
           <a
             href="tel:+447548643563"
-            className="group inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 hover:text-white transition-colors"
           >
             <PhoneCall className="w-3.5 h-3.5 text-[#FFB000]" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em]">
-              UK desk · +44 7548 643 563
-            </span>
+            <span>UK Desk · +44 7548 643 563</span>
           </a>
-
-          {/* <span className="hidden sm:block w-px h-4 bg-white/15" />
-
-          <span className="inline-flex items-center gap-2 text-white/60">
-            <PhoneCall className="w-3.5 h-3.5 text-[#FFB000]" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em]">
-              Shenzhen hub · +86 138 2345 6789
-            </span>
-          </span> */}
         </div>
       </div>
     </section>
