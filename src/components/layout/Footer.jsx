@@ -3,7 +3,7 @@ import { Package, Plane, Ship, MapPin, Mail, Phone, ShieldCheck, ArrowRight } fr
 import logo from "../../assets/logo.jpeg";
 
 const shippingServices = [
-  { name: "Air Express · 3–7 days", href: "/#services" },
+  { name: "Air Freight · 8–15 days", href: "/#rates" },
   { name: "Ocean freight · FCL / LCL", href: "/#services" },
   { name: "Taobao & 1688 consolidation", href: "/#services" },
   { name: "UK customs DDP clearance", href: "/#services" },
@@ -15,7 +15,7 @@ const clientLinks = [
   { name: "Client portal login", href: "/login" },
   { name: "How it works", href: "/#how-it-works" },
   { name: "Why ClearLine", href: "/#why-us" },
-  { name: "Rate calculator", href: "/#services" },
+  { name: "Rate calculator", href: "/#rates" },
   { name: "Track a package", href: "/#services" },
 ];
 

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   Plane,
   Ship,
+  Truck,
   Search,
   Calculator,
   ArrowRight,
@@ -56,12 +57,25 @@ export default function HeroSection() {
   };
 
   const numWeight = parseFloat(weightKg) || 1;
-  const baseRateAir = cargoType === "general" ? 8.5 : 10.2;
-  const baseRateSea = 2.4;
-  const estimatedCost =
-    shippingMode === "air"
-      ? (numWeight * baseRateAir + 12).toFixed(2)
-      : (Math.max(numWeight, 15) * baseRateSea + 20).toFixed(2);
+  const getAirRate = (w) => {
+    if (w <= 5) return 18;
+    if (w <= 15) return 16;
+    return 14;
+  };
+  const estimatedCost = (() => {
+    if (shippingMode === "air") {
+      const rate = getAirRate(numWeight);
+      const sensitiveExtra = cargoType === "sensitive" ? 2 : 0;
+      return (numWeight * (rate + sensitiveExtra)).toFixed(2);
+    }
+    if (shippingMode === "land") {
+      const sensitiveExtra = cargoType === "sensitive" ? 1.5 : 0;
+      return (numWeight * (8 + sensitiveExtra)).toFixed(2);
+    }
+    // sea
+    const sensitiveExtra = cargoType === "sensitive" ? 1 : 0;
+    return (numWeight * (8 + sensitiveExtra)).toFixed(2);
+  })();
 
   return (
     <section className="relative overflow-hidden bg-[#171B22] text-white pt-28 sm:pt-32 lg:pt-36 pb-20 sm:pb-28">
@@ -143,8 +157,8 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-center mt-7 text-[15px] sm:text-base text-white/75 max-w-xl mx-auto leading-relaxed [text-shadow:0_1px_12px_rgba(0,0,0,0.4)]">
-              Air courier in <span className="text-white font-medium">3–7 days</span>. Ocean
-              freight from <span className="text-white font-medium">£2.40/kg</span>. Free
+              Air freight from <span className="text-white font-medium">£14/kg</span> (8–15 days). Land &amp; Sea
+              shipping from <span className="text-white font-medium">£8/kg</span>. Free
               warehouse consolidation for Taobao &amp; 1688 orders. Full DDP customs — duties and
               VAT handled — delivered straight to your door.
             </p>
@@ -187,9 +201,9 @@ export default function HeroSection() {
             {/* Glass bento trust row */}
             <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/15 rounded-2xl overflow-hidden border border-white/20 backdrop-blur-2xl backdrop-saturate-150 shadow-[0_8px_32px_rgba(0,0,0,0.35),0_1px_0_rgba(255,255,255,0.15)_inset]">
               {[
-                { k: "3–7", unit: "days", label: "Air express" },
+                { k: "8–15", unit: "days", label: "Air freight" },
                 { k: "100%", unit: "DDP", label: "Duties handled" },
-                { k: "£2.40", unit: "/kg", label: "Ocean from" },
+                { k: "£8.00", unit: "/kg", label: "Sea & Land" },
                 { k: "Free", unit: "", label: "Repack & store" },
               ].map((m, i) => (
                 <div
@@ -472,8 +486,9 @@ export default function HeroSection() {
                             onChange={(e) => setShippingMode(e.target.value)}
                             className="w-full appearance-none px-3 py-2.5 pr-9 rounded-lg border border-[#171B22]/12 bg-white/70 backdrop-blur-xl text-[13px] font-mono outline-none focus:border-[#FFB000] focus:ring-4 focus:ring-[#FFB000]/15 focus:bg-white transition-all text-[#171B22]"
                           >
-                            <option value="air">Air · 3–7 days</option>
-                            <option value="sea">Sea · 25–35 days</option>
+                            <option value="air">Air · 8–15 days (£14–£18/kg)</option>
+                            <option value="land">Land (Truck) · 30–50 days (£8/kg)</option>
+                            <option value="sea">Sea · 45–70 days (£8/kg)</option>
                           </select>
                           <Plane
                             className={`w-3.5 h-3.5 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none ${
@@ -526,27 +541,26 @@ export default function HeroSection() {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2">
-                      <div className="rounded-lg border border-[#171B22]/10 bg-white/70 backdrop-blur-xl px-3 py-2.5 flex items-center gap-2">
-                        <Plane className="w-3.5 h-3.5 text-[#F45B0B]" />
+                    <div className="grid grid-cols-3 gap-2">
+                      <div className="rounded-lg border border-[#171B22]/10 bg-white/70 backdrop-blur-xl px-2.5 py-2 flex items-center gap-2">
+                        <Plane className="w-3.5 h-3.5 text-[#F45B0B] shrink-0" />
                         <div className="leading-tight">
-                          <div className="text-[11px] font-bold text-[#171B22]">
-                            Air Express
-                          </div>
-                          <div className="font-mono text-[9px] uppercase tracking-[0.14em] text-[#171B22]/45">
-                            3–7 days · DDP
-                          </div>
+                          <div className="text-[10.5px] font-bold text-[#171B22]">Air Freight</div>
+                          <div className="font-mono text-[8.5px] uppercase tracking-wider text-[#171B22]/50">8–15d · £14-18</div>
                         </div>
                       </div>
-                      <div className="rounded-lg border border-[#171B22]/10 bg-white/70 backdrop-blur-xl px-3 py-2.5 flex items-center gap-2">
-                        <Ship className="w-3.5 h-3.5 text-[#F45B0B]" />
+                      <div className="rounded-lg border border-[#171B22]/10 bg-white/70 backdrop-blur-xl px-2.5 py-2 flex items-center gap-2">
+                        <Truck className="w-3.5 h-3.5 text-[#171B22] shrink-0" />
                         <div className="leading-tight">
-                          <div className="text-[11px] font-bold text-[#171B22]">
-                            Ocean Freight
-                          </div>
-                          <div className="font-mono text-[9px] uppercase tracking-[0.14em] text-[#171B22]/45">
-                            25–35 days · DDP
-                          </div>
+                          <div className="text-[10.5px] font-bold text-[#171B22]">Land Truck</div>
+                          <div className="font-mono text-[8.5px] uppercase tracking-wider text-[#171B22]/50">30–50d · £8/kg</div>
+                        </div>
+                      </div>
+                      <div className="rounded-lg border border-[#171B22]/10 bg-white/70 backdrop-blur-xl px-2.5 py-2 flex items-center gap-2">
+                        <Ship className="w-3.5 h-3.5 text-[#171B22] shrink-0" />
+                        <div className="leading-tight">
+                          <div className="text-[10.5px] font-bold text-[#171B22]">Sea Freight</div>
+                          <div className="font-mono text-[8.5px] uppercase tracking-wider text-[#171B22]/50">45–70d · £8/kg</div>
                         </div>
                       </div>
                     </div>

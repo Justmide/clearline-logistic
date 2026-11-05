@@ -1,5 +1,5 @@
 import Hero from "../components/landing/HeroSection";
-import WhatWeDo from "../components/landing/WhatWeDo";
+import UKShippingRates from "../components/landing/UKShippingRates";
 import Projects from "../components/landing/Projects";
 import WhyChooseUs from "../components/landing/WhyChoseUs";
 import AboutUs from "../components/landing/AboutUs";
@@ -9,7 +9,7 @@ const LandingPage = () => {
   return (
     <div className="w-full">
       <Hero />
-      <WhatWeDo />
+      <UKShippingRates />
       <Projects />
       <WhyChooseUs />
       <AboutUs />

@@ -5,8 +5,8 @@ const shippingServices = [
   {
     code: "SVC-01",
     title: "Air Express",
-    tagline: "Fastest · 3–7 days",
-    transitTime: "3–7 Days",
+    tagline: "Fast and reliable · 8–15 days",
+    transitTime: "8–15 Days (6–12d Express)",
     route: "Shenzhen · Guangzhou → London Heathrow",
     features: [
       "Daily air cargo departures",
@@ -21,8 +21,8 @@ const shippingServices = [
   {
     code: "SVC-02",
     title: "Sea Freight",
-    tagline: "Lowest cost for bulk",
-    transitTime: "25–35 Days",
+    tagline: "Lowest cost for bulk · £8/kg",
+    transitTime: "45–70 Days",
     route: "Ningbo · Shanghai · Shenzhen → Felixstowe",
     features: [
       "LCL & FCL containers",
